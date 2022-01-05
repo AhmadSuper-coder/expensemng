@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -75,15 +76,18 @@ WSGI_APPLICATION = 'expensemng.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'expense_db',
-        "USER":'postgres',
-        "PASSWORD":"Sonu@001912",
-        "HOST":"localhost",
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME':'expense_db',
+#         "USER":'postgres',
+#         "PASSWORD":"Sonu@001912",
+#         "HOST":"localhost",
+#     }
+# }
+
+# DATABASES={'default':dj_database_url.config(default='postgres://user:pass@localhost/dbname')}
+DATABASES={'default':dj_database_url.config(default='postgres://postgres:Sonu@001912@localhost/expense_db')}
 
 
 # Password validation
