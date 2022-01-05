@@ -1,0 +1,73 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+
+/* Login style  */
+.loginstyle {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* our dashboard  */
+
+/* #topheader {
+    background-color:rgb(8, 6, 6);
+    color:white;
+    min-height:80px;
+}
+
+#topheader h2 {
+    line-height:80px;
+    margin-left:2%;
+} */
+
+/* #main {
+    min-height: 80vh;
+    background-color: white;
+}
+
+#main #sidebar {
+    min-height:80vh;
+    background-color: rgb(12, 85, 100);
+}
+
+#sidebar ul li{
+    border:0px;
+    background-color: rgb(4, 96, 114);
+}
+
+#sidebar ul {
+    margin-top:10%;
+}
+#sidebar ul li a{
+    color:white;
+    text-decoration:none;
+    margin-left: 3%;
+} */
+
+
+#over {
+    height:70vh;
+    overflow:auto;
+}
+
+#overagain {
+    height:70vh;
+    overflow:auto;
+}
+
+#overagainagain{
+    height:70vh;
+    overflow:auto;
+}
+
+/* bullet point of radio button  */
+
+#id_martial li {
+    list-style-type:none;
+}
+
+
+
+

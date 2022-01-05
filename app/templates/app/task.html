@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>Login</title> {% endblock title %}
+
+
+{% block main %}
+
+<div class="row">
+    <div class="row">
+      <h2>Task Manager</h2>
+        <div class="col-md-4">
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {% for fm in form %}
+                    {{fm.label_tag}} <span class="text-danger mx-3">{{fm.errors|striptags}}</span>  {{fm}} 
+                {% endfor %}
+                <input type="submit" class="btn btn-sm btn-primary" value="save record"><br>
+                <a href="{% url 'dashboard' %}">back to dashboard</a>
+            </form> 
+        </div>
+
+        <div class="col-md-8" id=overagain>
+          <P>My task </P>
+            <table class="table table-bordered">
+  
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Task Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for item in items %}
+
+                  {% ifequal item.user_id user.id %}
+                  <tr>
+                    <th scope="row"> {{item.id}} </th>
+                    <td> {{item.name}} </td>
+                    <td> {{item.start}} </td>
+                    <td> {{item.end}} </td>
+                    <td> {{item.note}} </td>
+
+                    <td>
+                        <a href="{% url 'edittask' item.id %}" class="btn btn-primary btn-sm mx-2 mt-1">Edit</a>
+                        <a href="{% url 'deletetask' item.id %}" class="btn btn-danger btn-sm mt-1">Delete</a>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+                  {% endifequal %}
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock main %}
+  

@@ -1,0 +1,105 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>dashboard</title> {% endblock title %}
+
+
+
+{% block container %}
+
+    <h1 class="mt-3">Welcome <span class="text-danger text-capitalize"  style="font-family:cursive;">{{user.username|upper}} </span></h1>
+   <hr>
+   <div class="row">
+        <!-- <div class="col-md-6">
+            <p>Your roommate and your expense</p>
+
+            <div class="input-group">
+
+              <input type="search" name="searchbyname" class="form-control rounded" placeholder="Search By Name" aria-label="Search"
+              aria-describedby="search-addon" />
+
+              <input type="submit" value="seach" class="btn btn-outline-primary">
+              <button type="button" class="btn btn-outline-primary">search</button> -->
+<!-- 
+            </div>
+
+            <div id=overagainagain>
+
+              <table class="table table-bordered">
+  
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                 {% for exp in exps %}
+                 
+                  <tr>
+                    <th scope="row"> {{exp.user_id}} </th>
+                    <td> {{exp.user}} </td>
+                    <td> {{exp.itemname}} </td>
+                    <td> {{exp.quantity}} </td>
+                    <td> {{exp.price}}rs </td>
+                    <td> {{exp.date}}</td>
+                  
+                   
+                  </tr>
+                </tbody>
+             
+                {% endfor %}
+              </table>
+
+            </div>
+
+        </div>  -->
+
+        <div class="col-md-5">
+            <p>Money calculations</p>
+             <h4 class="text-danger">Total Amount :  {{total}}</h4>
+              <h4>Average Amount: {{avg}}</h4>
+
+              <!-- {% for price in prices %}
+                    <span class="text-danger">{{price.username}}= </span>{{price.price}} <span>,  </span>
+                    
+              {% endfor %} -->
+
+
+              <table class="table table-bordered mt-4">
+  
+                <thead>
+                  <tr>
+                    <th scope="col">User_Name</th>
+                    <th scope="col">There expenses</th>
+                    <th scope="col">Overall</th>
+                  </tr>
+                </thead>
+                {% for price in prices %}
+                <tbody>
+                  <tr>
+                    <td> {{price.username}}</td>
+                    <td> {{price.price}} </td>
+                    <td>
+                      {% if price.overall >=  0 %}
+                          {{price.overall}} <span class="text-danger"><strong>Loose</strong></span>
+
+                      {% elif price.overall <= 0 %}
+                          {{price.overall}} <span class="text-success"><strong>Get</strong></span>
+                      {% endif %}
+                      </td>
+                  </tr>
+                </tbody>
+             
+                {% endfor %}
+              </table>
+
+        </div>
+
+   </div>
+{% endblock container %}
+  

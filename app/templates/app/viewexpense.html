@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>viewexpense</title> {% endblock title %}
+
+  
+{% block container %}
+<div class="row mt-4">
+    <h3 class="text-danger">Your all expenses</h3>
+    <div class="col-md-12" id=over>
+        {% if messages %}
+            {% for message in messages %}
+
+            <div class="alert alert-success h-2 alert-dismissible fade show" role="alert">
+              <strong><i class="far fa-check-circle"></i>  Hurreh !</strong> {{message}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            {% endfor %}
+          {% endif %}
+
+            <table class="table table-bordered">
+  
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for item in items %}
+                  {% ifequal item.user_id user.id %}
+                  <tr>
+                    <th scope="row"> {{item.id}} </th>
+                    <td> {{item.itemname}} </td>
+                    <td> {{item.quantity}} </td>
+                    <td> {{item.price}}rs </td>
+                    <td> {{item.date}}</td>
+                  
+                    <td>
+                        <a href="{% url 'edit' item.id %}" class="btn btn-primary btn-sm mx-2 mt-1">Edit</a>
+                        <a href="{% url 'deleteitem' item.id %}" class="btn btn-danger btn-sm mt-1">Delete</a>
+                    </td>
+                   
+                  </tr>
+                </tbody>
+                {% endifequal %}
+                {% endfor %}
+              </table>
+    </div>
+</div>
+<a class=" btn btn-sm btn-success mt-2 mb-3" href="{% url 'expense' %}">Add Expense</a>
+ {% endblock container %}
+
+
+
+

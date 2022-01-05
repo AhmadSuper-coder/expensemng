@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>viewtotal</title> {% endblock title %}
+
+{% block container %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="mt-4 text-danger"> Total Expenses added by everyone will come here </h4>
+             <hr>
+             
+            <div class="input-group">
+
+              <input type="search" name="searchbyname" class="form-control rounded" placeholder="Search By Name" aria-label="Search"
+              aria-describedby="search-addon" />
+
+              <input type="submit" value="seach" class="btn btn-outline-primary">
+              <!-- <button type="button" class="btn btn-outline-primary">search</button> -->
+
+            </div>
+
+            <div id=overagainagain>
+
+              <table class="table table-bordered">
+  
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                 {% for exp in exps %}
+                 
+                  <tr>
+                    <th scope="row"> {{exp.user_id}} </th>
+                    <td> {{exp.user}} </td>
+                    <td> {{exp.itemname}} </td>
+                    <td> {{exp.quantity}} </td>
+                    <td> {{exp.price}}rs </td>
+                    <td> {{exp.date}}</td>
+                  
+                   
+                  </tr>
+                </tbody>
+             
+                {% endfor %}
+              </table>
+
+            </div>
+    </div>
+</div>
+
+ {% endblock container %}
+
+
+
+

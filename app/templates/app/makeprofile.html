@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>edit</title> {% endblock title %}
+
+
+
+{% block container %}
+    <h1 class="text-center bg-dark p-3 text-white"> Make your profile </h1>
+    <div class="row">
+        <div class="col-md-4 p-5 shadow m-auto">
+            <form action="" method="POST" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for fm in form %}`
+    
+                    {{fm.label_tag}}<span class="text-danger mx-2">{{fm.errors|striptags}}</span> {{fm}}
+    
+                {% endfor %}
+                <input type="submit" class="btn btn-sm btn-primary my-2" value="save records"><br>
+
+            </form> 
+          
+            <a href="{% url 'profile' %}">back to profile</a>
+        </div>
+    </div>
+
+{% endblock container %}
+
+
+{% block dashboardmain %}
+
+{% endblock dashboardmain %}

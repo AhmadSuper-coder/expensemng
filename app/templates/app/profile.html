@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>Login</title> {% endblock title %}
+
+
+
+{% block container %}
+
+<div class="container shadow mt-3 p-4 mb-5 bg-white rounded border border-black">
+<div class="row">
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <h3 class='text-center mb-3'>Personal Details Of User</h3>
+            <div>
+                <p>Name: {{user.first_name}} </p>
+                <p>Email: {{user.email}}</p>
+                <p>Last Login: {{user.last_login}}</p>
+                <p>Date Of Joining: {{user.date_joined}}</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div>
+                {% for profile in profiles %}
+                {% ifequal profile.user_id user.id %}
+                
+                <div class="col-md-10 offset-2 mt-1">
+                    <img src="{{profile.img.url}}"  style="border-radius: 90%; border:2px solid rgb(6, 70, 107)" width="100px" height=100px>
+                    <p class="mt-1 text-capitalize" style="font-family:cursive;">Name: {{user.username}} </p>
+                </div>
+
+                <hr style="border:2px solid rgb(5, 65, 105);">
+                <h3 class=mt-2> About user </h3>
+                        <p> {{profile.desc}} </p>
+                        <p> {{profile.occupation}} </p>
+                        <p> {{profile.martial}} </p>
+                        <a href="{% url 'editkalua' profile.user_id %}" class="btn btn-primary btn-sm" >Edit profile</a>
+                    {% endifequal %}
+                {% endfor %}
+            </div>
+           
+        </div> 
+
+        <div class="col-sm-3">
+            <a href="{% url 'makeprofile' %}" class='btn btn-sm btn-primary mt-3'>make profile</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock container %}
+  

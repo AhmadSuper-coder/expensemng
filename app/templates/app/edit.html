@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>edit</title> {% endblock title %}
+
+
+
+{% block container %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class='text-white bg-dark p-3 text-center'>Welcome Edit your Item</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 m-auto mt-4">
+        <form action="" method='POST'>
+            {% csrf_token %}
+            {% for fm in form %}
+                {{fm.label_tag}} <span class="text-danger mx-3">{{fm.errors|striptags}}</span>  {{fm}} 
+            {% endfor %}
+            <input type="submit" class="btn btn-sm btn-primary" value="update"><br>
+            <a href="{% url 'expense' %}">back to dashboard</a>
+        </form>
+    </div>
+</div>
+
+{% endblock container %}
+
+
+{% block dashboardmain %}
+
+{% endblock dashboardmain %}

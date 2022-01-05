@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>Login</title> {% endblock title %}
+
+{% block mainmenu %}
+{% endblock mainmenu %}
+  
+{% block container %}
+
+<div class="row">
+    <div class="col-md-4 m-auto mt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-4" {% endif %}> {{message}} </p>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="row-md-12">
+    <div class="col-md-4 m-auto mt-5 loginstyle p-4">
+        <img class="text-center" src="{% static 'app\img\facicon.png' %}" width="100px" height="70px">
+        <h2 class="text-center mb-5">Expense Manager</h2>       
+
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {% for fm in form %}
+                <span class="text-danger">{{fm.label_tag}}</span> <span class="text-danger mx-3">{{fm.errors|striptags}}</span>  {{fm}} 
+            {% endfor %}
+            <input type="submit" class="btn btn-sm btn-primary" value="login"><br>
+        </form> 
+    </div>
+</div>
+  
+ {% endblock container %}
+
+
+
+

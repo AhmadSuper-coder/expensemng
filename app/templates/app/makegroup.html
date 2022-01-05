@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %} <title>Login</title> {% endblock title %}
+
+  
+{% block container %}
+
+<div class="row">
+   <div class="col-md-8 m-auto bg-dark ">
+      <h1 class="text-center p-3 text-white">Welcome to Expense Manager Create Your Group and Add expense with many features </h1>
+   </div>
+
+   <div class="row m-auto mt-5">
+      <div class="col-md-4">
+         <h5>Create Group Name</h5>
+         <form action="" method="POST" novalidate>
+            {% csrf_token %}
+               {{form}}
+               <input type="submit" value="Create">
+         </form>
+      </div>
+
+      <div class="col-md-3">
+         <h5>Your Group Name</h5>
+         {% for group in groups %}
+            <a href="{% url 'login' %}">{{group.groupname}}</a>
+         {% endfor %}
+      </div>
+
+   </div>
+</div>
+
+
+ {% endblock container %}
+
+
+ 
+ {% block dashboardmain %}
+
+ {% endblock dashboardmain %}
+
