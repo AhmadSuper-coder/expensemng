@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-a*4+@snw%u9)$7z3=e2gl^@+(4j=1hc1t2mnu#3eht0y5j0j=&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["paisamanage.herokuapp.com"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["paisamanage.herokuapp.com"]
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -76,18 +76,18 @@ WSGI_APPLICATION = 'expensemng.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'expense_db',
-        "USER":'postgres',
-        "PASSWORD":"Sonu@001912",
-        "HOST":"localhost",
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME':'expense_db',
+#         "USER":'postgres',
+#         "PASSWORD":"Sonu@001912",
+#         "HOST":"localhost",
+#     }
+# }
 
 # DATABASES={'default':dj_database_url.config(default='postgres://user:pass@localhost/dbname')}
-# DATABASES={'default':dj_database_url.config(default='postgres://postgres:Sonu@001912@localhost/expense_db')}
+DATABASES={'default':dj_database_url.config(default='postgres://postgres:Sonu@001912@localhost/expense_db')}
 
 
 # Password validation
